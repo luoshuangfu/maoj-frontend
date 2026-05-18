@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 
@@ -51,7 +51,7 @@ export class CancelablePromise<T> implements Promise<T> {
           return;
         }
         this.#isResolved = true;
-        if (this.#resolve) this.#resolve(value);
+        this.#resolve?.(value);
       };
 
       const onReject = (reason?: any): void => {
@@ -59,7 +59,7 @@ export class CancelablePromise<T> implements Promise<T> {
           return;
         }
         this.#isRejected = true;
-        if (this.#reject) this.#reject(reason);
+        this.#reject?.(reason);
       };
 
       const onCancel = (cancelHandler: () => void): void => {
@@ -122,7 +122,7 @@ export class CancelablePromise<T> implements Promise<T> {
       }
     }
     this.#cancelHandlers.length = 0;
-    if (this.#reject) this.#reject(new CancelError("Request aborted"));
+    this.#reject?.(new CancelError("Request aborted"));
   }
 
   public get isCancelled(): boolean {

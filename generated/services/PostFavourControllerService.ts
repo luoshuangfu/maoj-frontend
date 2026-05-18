@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do not edit */
+/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -7,6 +7,7 @@ import type { BaseResponse_Page_PostVO_ } from "../models/BaseResponse_Page_Post
 import type { PostFavourAddRequest } from "../models/PostFavourAddRequest";
 import type { PostFavourQueryRequest } from "../models/PostFavourQueryRequest";
 import type { PostQueryRequest } from "../models/PostQueryRequest";
+
 import type { CancelablePromise } from "../core/CancelablePromise";
 import { OpenAPI } from "../core/OpenAPI";
 import { request as __request } from "../core/request";

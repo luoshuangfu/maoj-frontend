@@ -5,17 +5,24 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:fix": "eslint --ext .js,.vue,.ts --fix src/ generated/"
   },
   "dependencies": {
+    "@bytemd/plugin-gfm": "^1.22.0",
+    "@bytemd/plugin-highlight": "^1.22.0",
+    "@bytemd/vue-next": "^1.22.0",
     "axios": "^1.16.0",
     "core-js": "^3.8.3",
+    "monaco-editor": "^0.55.1",
+    "monaco-editor-webpack-plugin": "^7.1.1",
     "vue": "^3.2.13",
     "vue-router": "4.1.6",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@arco-design/web-vue": "^2.58.0",
+    "@babel/plugin-transform-class-static-block": "^7.28.6",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",

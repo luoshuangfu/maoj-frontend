@@ -30,7 +30,7 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "主页",
-    component: () => import("../views/HelloView.vue"),
+    component: () => import("../views/ExampleView.vue"),
   },
   {
     path: "/hide",
@@ -44,6 +44,14 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/admin",
     name: "管理员可见",
     component: () => import("../views/AdminView.vue"),
+    meta: {
+      access: AccessEnum.ADMIN,
+    },
+  },
+  {
+    path: "/add/question",
+    name: "添加题目",
+    component: () => import("../views/question/AddQuestionView.vue"),
     meta: {
       access: AccessEnum.ADMIN,
     },
