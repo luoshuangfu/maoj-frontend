@@ -121,6 +121,7 @@ let form = ref({
   title: "A + B",
 });
 const route = useRoute();
+//true or false
 const updatePage = route.path.includes("update");
 /**
  * 根据题目id获取老的数据

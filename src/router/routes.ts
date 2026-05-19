@@ -32,22 +32,22 @@ export const routes: Array<RouteRecordRaw> = [
     name: "主页",
     component: () => import("../views/ExampleView.vue"),
   },
-  {
+/*  {
     path: "/hide",
     name: "隐藏页面",
     component: () => import("../views/HelloView.vue"),
     meta: {
       hideInMenu: true,
     },
-  },
-  {
+  },*/
+/*  {
     path: "/admin",
     name: "管理员可见",
     component: () => import("../views/AdminView.vue"),
     meta: {
       access: AccessEnum.ADMIN,
     },
-  },
+  },*/
   {
     path: "/add/question",
     name: "添加题目",
@@ -65,5 +65,9 @@ export const routes: Array<RouteRecordRaw> = [
     path:"/update/question",
     name:"更新题目",
     component: () => import("../views/question/AddQuestionView.vue"),
+    meta: {
+      access: AccessEnum.USER,
+      hideInMenu: true,
+    },
   },
 ];

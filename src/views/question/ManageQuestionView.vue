@@ -5,11 +5,12 @@
         :columns="columns"
         :data="dataList"
         :pagination="{
-        pageSize: searchParams.pageSize,
-        current: searchParams.pageNum,
-        showTotal: true,
-        total,
+      pageSize: searchParams.pageSize,
+      current: searchParams.current,
+      showTotal: true,
+      total,
       }"
+        @page-change="onPageChange"
     >
       <template #optional="{ record }">
         <a-space>
@@ -21,7 +22,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watchEffect } from "vue";
 import { Question, QuestionControllerService } from "../../../generated";
 import { Message } from "@arco-design/web-vue";
 import { useRouter } from "vue-router";
@@ -30,8 +31,8 @@ const router = useRouter();
 const dataList = ref([]);
 const total = ref(0);
 const searchParams = ref({
-  pageSize: 10,
-  pageNum: 1,
+  pageSize: 2,
+  current: 1,
 });
 const loadData = async () => {
   const res = await QuestionControllerService.listQuestionByPageUsingPost(
@@ -99,6 +100,15 @@ const columns = [
     slotName: "optional",
   },
 ];
+watchEffect(() => {
+  loadData();
+});
+const onPageChange = (page: number) => {
+  searchParams.value = {
+    ...searchParams.value,
+    current: page,
+  };
+};
 const doDelete = async (question: Question) => {
   const res = await QuestionControllerService.deleteQuestionUsingPost({
     id: question.id,
