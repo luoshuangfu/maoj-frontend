@@ -143,7 +143,7 @@ const onContentChange = (value: string) => {
   form.content = value;
 };
 const onAnswerChange = (value: string) => {
-  form.content = value;
+  form.answer = value;
 };
 </script>
 <style scoped></style>
