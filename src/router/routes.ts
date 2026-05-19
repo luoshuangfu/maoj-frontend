@@ -49,12 +49,17 @@ export const routes: Array<RouteRecordRaw> = [
     },
   },*/
   {
+    path: "/question",
+    name: "浏览题目",
+    component: () => import("../views/question/QuestionsView.vue"),
+  },
+  {
     path: "/add/question",
     name: "添加题目",
     component: () => import("../views/question/AddQuestionView.vue"),
-    /*meta: {
-      access: AccessEnum.ADMIN,
-    },*/
+    meta: {
+      access: AccessEnum.USER,
+    },
   },
   {
     path:"/manage/question",

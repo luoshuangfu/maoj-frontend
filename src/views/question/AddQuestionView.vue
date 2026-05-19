@@ -127,6 +127,8 @@ const updatePage = route.path.includes("update");
  * 根据题目id获取老的数据
  */
 const loadData = async () => {
+  //manageQuestionView页面发来的question id值
+  //路由
   const id = route.query.id;
   if (!id) return;
   const res = await QuestionControllerService.getQuestionByIdUsingGet(

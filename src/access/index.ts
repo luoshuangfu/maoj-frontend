@@ -5,7 +5,7 @@ import checkAccess from "@/access/checkAccess";
 
 router.beforeEach(async (to, from, next) => {
   console.log("登陆用户信息", store.state.user.loginUser);
-  const loginUser = store.state.user.loginUser;
+  let loginUser = store.state.user.loginUser;
   // // 如果之前没登陆过，自动登录
   // 如果没登陆，自动拉取登录态（避免刷新后 vuex 清空）
   if (!loginUser || !loginUser.userRole) {
